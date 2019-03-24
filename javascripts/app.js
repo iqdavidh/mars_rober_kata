@@ -17,14 +17,14 @@ function moveForward(rover) {
 
 
 function getNewDireccion(direccionActual, tipoMovimiento) {
-    let listaCordenadas = ['W', 'N', 'E', 'S'];
+    let listaDireccion = ['W', 'N', 'E', 'S'];
 
     if (tipoMovimiento === 'forward' || tipoMovimiento === 'f') {
         return direccionActual;
     }
 
 
-    let indexDir = listaCordenadas.findIndex(function (letra) {
+    let indexDir = listaDireccion.findIndex(function (letra) {
         return letra === direccionActual;
     });
 
@@ -45,7 +45,7 @@ function getNewDireccion(direccionActual, tipoMovimiento) {
         newIndex = 0;
     }
 
-    return listaCordenadas[newIndex];
+    return listaDireccion[newIndex];
 }
 
 //direcciones para facil usar console
