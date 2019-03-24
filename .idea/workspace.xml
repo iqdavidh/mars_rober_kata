@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1340ed1-162c-47a7-af1e-df43a2a43eff" name="Default Changelist" comment="" />
+    <list default="true" id="f1340ed1-162c-47a7-af1e-df43a2a43eff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mars-rover-v2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascripts/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/lib/jasmine-3.3.0/boot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/lib/jasmine-3.3.0/jasmine-html.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/lib/jasmine-3.3.0/jasmine.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/lib/jasmine-3.3.0/jasmine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/lib/jasmine-3.3.0/jasmine_favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/spec/app_test.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +41,7 @@
             <entry file="file://$PROJECT_DIR$/javascripts/app.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-1136">
-                  <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+                  <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -34,7 +50,7 @@
             <entry file="file://$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="153">
-                  <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+                  <caret line="12" selection-start-line="12" selection-end-line="12" />
                 </state>
               </provider>
             </entry>
@@ -47,7 +63,7 @@
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="119">
-                  <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+                  <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -72,6 +88,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -92,6 +111,7 @@
     <option name="width" value="1214" />
     <option name="height" value="1141" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -152,16 +172,15 @@
       <updated>1553395250688</updated>
       <workItem from="1553395252951" duration="4485000" />
       <workItem from="1553427524875" duration="235000" />
-      <workItem from="1553442260212" duration="7668000" />
+      <workItem from="1553442260212" duration="8018000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12388000" />
+    <option name="totallyTimeSpent" value="12738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1089" y="300" width="1214" height="1141" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Gulp" order="0" sideWeight="0.38763493" side_tool="true" weight="0.18205805" />
       <window_info id="Database" order="1" sideWeight="0.610687" weight="0.34726223" />
@@ -175,7 +194,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50074625" side_tool="true" weight="0.32934782" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49925372" weight="0.1703422" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" weight="0.2638889" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" visible="true" weight="0.2638889" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49944875" weight="0.23878327" />
@@ -215,7 +234,7 @@
     <entry file="file://$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -236,7 +255,7 @@
     <entry file="file://$PROJECT_DIR$/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1136">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
