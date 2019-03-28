@@ -1,109 +1,145 @@
 "use strict";
-// Rover Object Goes Here
-// ======================
 
-// ======================
-function turnLeft(rover) {
-    console.log("turnLeft was called!");
-}
-
-function turnRight(rover) {
-    console.log("turnRight was called!");
-}
-
-function moveForward(rover) {
-    console.log("moveForward was called")
-}
-
-
-function getNewDireccion(direccionActual, tipoMovimiento) {
-    let listaDireccion = ['W', 'N', 'E', 'S'];
-
-    if (tipoMovimiento === 'forward' || tipoMovimiento === 'f') {
-        return direccionActual;
-    }
-
-
-    let indexDir = listaDireccion.findIndex(function (letra) {
-        return letra === direccionActual;
-    });
-
-    let newIndex = 0;
-    if (tipoMovimiento === 'turnLeft' || tipoMovimiento === 'l') {
-        newIndex = indexDir - 1;
-    } else if(tipoMovimiento==='turnRight' || tipoMovimiento==='r'){
-        newIndex = indexDir + 1;
-    }else{
-
-    }
-
-    if (newIndex < 0) {
-        newIndex = 3;
-    }
-
-    if (newIndex > 3) {
-        newIndex = 0;
-    }
-
-    return listaDireccion[newIndex];
-}
 
 //direcciones para facil usar console
-var l = 'l';
-var f = 'f';
-var r = 'r';
-
-var rover = {
-    direccion: 'N',
-    posicion: {
-        x: 0,
-        y: 0
-    },
-    posicionOld: {
-        x: 0,
-        y: 0
-    },
-    historialMovimientos: [],
-    travelLog: [],
-    mover: function (tipoMovimiento) {
-
-        //guardar la posicion y el movimiento
-        rover.historialMovimientos.push(tipoMovimiento);
-
-        rover.posicionOld.x = rover.posicion.x;
-        rover.posicionOld.y = rover.posicion.y;
+var l = 'turnLeft';
+var f = 'forward';
+var r = 'turnRight';
+var b='backward';
 
 
-        if (tipoMovimiento === 'forward' || tipoMovimiento === 'f') {
+
+function Rover(nombre, xinicio, yinicio, direccionInicial) {
+
+    this.nombre = nombre;
+
+    this.direccion = direccionInicial || 'N';
+
+    this.getNewDireccion = function (direccionActual, tipoMovimiento) {
+        let listaDireccion = ['W', 'N', 'E', 'S'];
+
+        if (tipoMovimiento === 'forward' || tipoMovimiento === 'backward') {
+            return direccionActual;
+        }
+
+
+        let indexDir = listaDireccion.findIndex(function (letra) {
+            return letra === direccionActual;
+        });
+
+        let newIndex = 0;
+        if (tipoMovimiento === 'turnLeft') {
+            newIndex = indexDir - 1;
+        } else {
+            newIndex = indexDir + 1;
+        }
+
+        if (newIndex < 0) {
+            newIndex = 3;
+        }
+
+        if (newIndex > 3) {
+            newIndex = 0;
+        }
+
+        return listaDireccion[newIndex];
+    };
+
+    this.posicion = {
+        x: (xinicio || 0),
+        y: (yinicio || 0)
+    };
+
+    this.posicionOld = {
+        x: (xinicio || 0),
+        y: (yinicio || 0)
+    };
+
+    this.historialMovimientos = [];
+    this.travelLog = [];
+
+    this.validarMovimiento = function (movimiento) {
+
+        let listaMovPermitidos = ['forward', 'backward', 'turnLeft', 'turnRight'];
+
+        let indexMov = listaMovPermitidos.findIndex(function (texto) {
+            return texto === movimiento;
+        });
+
+        return indexMov>=0;
+    };
+
+    this.mover = function (tipoMovimiento) {
+
+        //validar
+        let isValid = this.validarMovimiento(tipoMovimiento);
+
+        if (!isValid) {
+            return this;
+        }
+
+
+        let dir = this.direccion;
+
+        this.historialMovimientos.push(tipoMovimiento);
+
+        this.posicionOld.x = this.posicion.x;
+        this.posicionOld.y = this.posicion.y;
+
+
+        if (tipoMovimiento === 'forward') {
             //cambia la posicion
 
-            if (rover.direccion === 'N') {
-                rover.posicion.y++;
-            } else if (rover.direccion === 'S') {
-                rover.posicion.y--;
-            } else if (rover.direccion === 'E') {
-                rover.posicion.x++;
-            } else if (rover.direccion === 'W') {
-                rover.posicion.y++;
+            if (dir === 'N') {
+                this.posicion.y++;
+            } else if (dir === 'S') {
+                this.posicion.y--;
+            } else if (dir === 'E') {
+                this.posicion.x++;
+            } else if (dir === 'W') {
+                this.posicion.x--;
+            }
+
+        } else if (tipoMovimiento === 'backward') {
+
+            if (dir === 'N') {
+                this.posicion.y--;
+            } else if (dir === 'S') {
+                this.posicion.y++;
+            } else if (dir === 'E') {
+                this.posicion.x--;
+            } else if (dir === 'W') {
+                this.posicion.x++;
             }
 
         } else {
             //cambia la direccion
-            rover.direccion = getNewDireccion(rover.direccion, tipoMovimiento);
+            this.direccion = this.getNewDireccion(this.direccion, tipoMovimiento);
         }
 
         console.log(tipoMovimiento + " was called!");
-        console.log('Direccion ' + rover.direccion);
-        console.log(rover.posicion);
-        console.log(''); /* para una simple  salto*/
+        console.log('Direccion ' + this.direccion);
+
+        /* validar limites */
+
+        this.posicion.x= (this.posicion.x<-10)?-10:this.posicion.x;
+        this.posicion.x= (this.posicion.x>10)?10:this.posicion.x;
+        this.posicion.y= (this.posicion.y)<-10?-10:this.posicion.y;
+        this.posicion.y= (this.posicion.y)>10?10:this.posicion.y;
+
+
+        console.log(this.posicion);
 
 
         //guardar historial de ubicaciones
-        rover.travelLog.push({x: rover.posicion.x, y: rover.posicion.y});
+        this.travelLog.push({x: this.posicion.x, y: this.posicion.y});
 
-        return rover;
-    },
-    moverConComandos: function (comandos) {
+
+
+        return this;
+    };
+
+    this.moverConComandos = function (comandos) {
 
         comandos = comandos || '';
         if (comandos === '') {
@@ -112,32 +148,41 @@ var rover = {
 
         let listaCodigo = comandos.split('');
 
-        let listaMovimiento = listaCodigo.map(function (letra) {
-            if(letra==='f'){
-                return 'forward'
-            }else if (letra==='l') {
-                return 'turnLeft';
-            }else if(letra==='r'){
-                return 'turnRight';
-            }else{
-                return '';
+
+        for (let i = 0; i < listaCodigo.length; i++) {
+
+            let letra = listaCodigo[i];
+            let m = '';
+
+            if (letra === 'f') {
+                m = 'forward'
+            } else if (letra === 'b') {
+                m = 'backward';
+            } else if (letra === 'l') {
+                m = 'turnLeft';
+            } else if (letra === 'r') {
+                m = 'turnRight';
+            } else {
+                m = '';
             }
-        });
 
-
-        for (let i = 0; i < listaMovimiento.length ; i++) {
-            let m =listaMovimiento[i];
-            rover.mover(m);
+            this.mover(m);
         }
 
 
-    },
-    resetPosicion:function(){
-        rover.direccion='N';
-        rover.posicion.x=0;
-        rover.posicion.y=0;
-        rover.posicionOld.x=0;
-        rover.posicionOld.y=0;
+    };
+
+    this.resetPosicion = function () {
+        this.direccion = 'N';
+        this.posicion.x = 0;
+        this.posicion.y = 0;
+        this.posicionOld.x = 0;
+        this.posicionOld.y = 0;
     }
 
-};
+
+}
+
+
+var rover = new Rover('rover1');
+var explorer = new Rover('explorer');
