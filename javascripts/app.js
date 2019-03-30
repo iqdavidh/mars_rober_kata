@@ -5,17 +5,17 @@
 var l = 'turnLeft';
 var f = 'forward';
 var r = 'turnRight';
-var b='backward';
-
+var b = 'backward';
 
 
 function Rover(nombre, xinicio, yinicio, direccionInicial) {
 
     this.nombre = nombre;
-    this.colorStyle='';
+    this.id = parseInt(Math.random() * 10000);
+    this.colorStyle = '';
 
 
-    this.isVerbose=true;
+    this.isVerbose = true;
 
     this.direccion = direccionInicial || 'N';
 
@@ -65,7 +65,7 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
             return texto === movimiento;
         });
 
-        return indexMov>=0;
+        return indexMov >= 0;
     };
 
     this.mover = function (tipoMovimiento) {
@@ -113,28 +113,26 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
             this.direccion = this.getNewDireccion(this.direccion, tipoMovimiento);
         }
 
-        if(this.isVerbose){
+        if (this.isVerbose) {
             console.log(tipoMovimiento + " was called!");
             console.log('Direccion ' + this.direccion);
         }
 
         /* validar limites */
 
-        this.posicion.x= (this.posicion.x<-10)?-10:this.posicion.x;
-        this.posicion.x= (this.posicion.x>10)?10:this.posicion.x;
-        this.posicion.y= (this.posicion.y)<-10?-10:this.posicion.y;
-        this.posicion.y= (this.posicion.y)>10?10:this.posicion.y;
+        this.posicion.x = (this.posicion.x < -10) ? -10 : this.posicion.x;
+        this.posicion.x = (this.posicion.x > 10) ? 10 : this.posicion.x;
+        this.posicion.y = (this.posicion.y) < -10 ? -10 : this.posicion.y;
+        this.posicion.y = (this.posicion.y) > 10 ? 10 : this.posicion.y;
 
 
-        if(this.isVerbose){
+        if (this.isVerbose) {
             console.log(this.posicion);
         }
 
 
-
         //guardar historial de ubicaciones
         this.travelLog.push({x: this.posicion.x, y: this.posicion.y});
-
 
 
         return this;
@@ -181,26 +179,24 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
     };
 
 
-    this.randomPosicion=function(){
+    this.randomPosicion = function () {
 
-        let n1 =  Math.random() * 20 + -10;
-        let n2 = Math.random() * 20 + -10;
+        let n1 =  parseInt(Math.random() * 20 + -10);
+        let n2 = parseInt(Math.random() * 20 + -10);
 
-        n1=parseInt(n1);
-        n2=parseInt(n2);
 
-        if(n1<-10){
-            n1=-10
+        if (n1 < -10) {
+            n1 = -10
         }
-        if(n1>10){
-            n1=10;
+        if (n1 > 10) {
+            n1 = 10;
         }
 
-        if(n2<-10){
-            n2=-10
+        if (n2 < -10) {
+            n2 = -10
         }
-        if(n2>10){
-            n2=10;
+        if (n2 > 10) {
+            n2 = 10;
         }
 
         this.direccion = 'N';
@@ -209,17 +205,15 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
 
     };
 
-    this.setRandomColor=function(){
+    this.setRandomColor = function () {
 
-        let n1 =  Math.random() * 255;
+        let n1 = Math.random() * 255;
         let n2 = Math.random() * 255;
         let n3 = Math.random() * 255;
 
-        this.colorStyle='rgb('+ n1+','+n2+','+n3+')';
+        this.colorStyle = 'rgb(' + n1 + ',' + n2 + ',' + n3 + ')';
 
     }
-
-
 
 
 }
