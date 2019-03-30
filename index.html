@@ -7,8 +7,11 @@
 </head>
 <body>
 
+<h3>Usar las flecha del teclado para mover el rover</h3>
+<p>@iqdavidh</p>
 
-<canvas id="myCanvas" width="800" height="600" style="border:1px solid #d3d3d3;">
+
+<canvas id="myCanvas" width="420" height="420" style="border:1px solid #d3d3d3; margin-left: 50px">
 
     Your browser does not support the HTML5 canvas tag.
 </canvas>
@@ -28,11 +31,11 @@
 
             getXMapaMitad: function () {
                 //es 1/2 del width del canvas 800/2
-                return 400;
+                return 200;
             },
             getYMapaMitad: function () {
                 //es 1/2 del heigth del canvas 600/2
-                return 300;
+                return 200;
             },
             validarX: function (x) {
                 return x >= (-this.getXMapaMitad()) && x <= this.getXMapaMitad();
@@ -42,7 +45,7 @@
             },
             renderBot: function (xCart, yCart, dir, color) {
 
-                console.log('render ' + xCart + ',' + yCart);
+                //console.log('render ' + xCart + ',' + yCart);
                 ctx.fillStyle = color;
                 ctx.strokeStyle = color;
 
@@ -98,7 +101,7 @@
                 let x = xMapaMitad + xCart;
                 let y = yMapaMitad - yCart;
 
-                console.log('borrar ' + x + ',' + y);
+                //console.log('borrar ' + x + ',' + y);
                 ctx.clearRect(x, y, alfa * 2, alfa * 2);
 
 
@@ -130,10 +133,6 @@
         }
     ;
 
-
-    //Land.renderMovimiento(0, 0, 50, 50, 'N', 'rgb(0, 221, 0)');
-
-
 </script>
 
 <script src="javascripts/app.js?v=1"></script>
@@ -141,7 +140,9 @@
 
 <script>
 
+
     rover.isVerbose = false;
+    rover.randomPosicion();
     Land.addRover(rover);
 
     document.addEventListener('keydown', (event) => {
@@ -178,7 +179,7 @@
         let xNew = r.posicion.x * 2 * 10;
         let yNew = r.posicion.y * 2 * 10;
 
-        console.log("mov " + xOld + ',' + yOld + ' to ' + xNew + ',' + yNew);
+        //console.log("mov " + xOld + ',' + yOld + ' to ' + xNew + ',' + yNew);
 
         Land.renderMovimiento(xOld, yOld, xNew, yNew, r.direccion, 'red');
 

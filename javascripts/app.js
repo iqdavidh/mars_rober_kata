@@ -174,9 +174,38 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
         this.direccion = 'N';
         this.posicion.x = 0;
         this.posicion.y = 0;
-        this.posicionOld.x = 0;
-        this.posicionOld.y = 0;
+
+    };
+
+
+    this.randomPosicion=function(){
+
+        let n1 =  Math.random() * 20 + -10;
+        let n2 = Math.random() * 20 + -10;
+
+        n1=parseInt(n1);
+        n2=parseInt(n2);
+
+        if(n1<-10){
+            n1=-10
+        }
+        if(n1>10){
+            n1=10;
+        }
+
+        if(n2<-10){
+            n2=-10
+        }
+        if(n2>10){
+            n2=10;
+        }
+
+        this.direccion = 'N';
+        this.posicion.x = n1;
+        this.posicion.y = n2;
+
     }
+
 
 
 }
