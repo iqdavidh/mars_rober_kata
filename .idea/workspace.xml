@@ -19,8 +19,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="98" column="53" lean-forward="true" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
+                <state relative-caret-position="102">
+                  <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+                  <folding>
+                    <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -28,8 +31,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/javascripts/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-752">
-                  <caret line="52" selection-start-line="52" selection-end-line="52" />
+                <state relative-caret-position="258">
+                  <caret line="227" column="32" lean-forward="true" selection-start-line="227" selection-start-column="32" selection-end-line="227" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -59,8 +62,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="172" selection-start-line="172" selection-end-line="172" />
+                <state relative-caret-position="135">
+                  <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
                   <folding>
                     <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -83,10 +86,11 @@
     <findStrings>
       <find>forea</find>
       <find>rover</find>
-      <find>turnl</find>
       <find>deleteBot</find>
       <find>renderBot</find>
       <find>console</find>
+      <find>turnl</find>
+      <find>conso</find>
     </findStrings>
     <replaceStrings>
       <replace>dir</replace>
@@ -193,7 +197,7 @@
       <workItem from="1553442260212" duration="9639000" />
       <workItem from="1553748992701" duration="3103000" />
       <workItem from="1553772580285" duration="5906000" />
-      <workItem from="1553897322608" duration="10258000" />
+      <workItem from="1553897322608" duration="12297000" />
     </task>
     <task id="LOCAL-00001" summary="funcionando">
       <created>1553451302159</created>
@@ -223,11 +227,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553906496392</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="canvas funcionando">
+      <created>1553909156316</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553909156316</updated>
+    </task>
+    <task id="LOCAL-00006" summary="funcioinando completamente">
+      <created>1553910278223</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553910278223</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33626000" />
+    <option name="totallyTimeSpent" value="35665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1378" y="463" width="1467" height="1141" extended-state="0" />
@@ -271,7 +289,9 @@
     <MESSAGE value="refactorizando nombre de variable coordenadas es incorrecto" />
     <MESSAGE value="refactorizando para tener con function constructor y poder tener mas de un rober, tambien hace el backward. Saque codigo de jasmin de file al cuerpo html para que sea mas facil editar. Creo que es mejor usar node para pruebas -ver como un link js pueda usarse sin cache" />
     <MESSAGE value="ya tengo un render de bot, falta borrar la posicion anterior" />
-    <option name="LAST_COMMIT_MESSAGE" value="ya tengo un render de bot, falta borrar la posicion anterior" />
+    <MESSAGE value="canvas funcionando" />
+    <MESSAGE value="funcioinando completamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcioinando completamente" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/javascripts/appCanvas.js" />
@@ -294,15 +314,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-752">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="258">
+          <caret line="227" column="32" lean-forward="true" selection-start-line="227" selection-start-column="32" selection-end-line="227" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="98" column="53" lean-forward="true" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
+        <state relative-caret-position="102">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

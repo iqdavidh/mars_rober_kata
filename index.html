@@ -11,13 +11,14 @@
 <p>@iqdavidh</p>
 
 
-<canvas id="myCanvas" width="420" height="420" style="border:1px solid #d3d3d3; margin-left: 50px">
+<canvas id="myCanvas" width="420" height="420" style="border:2px solid #d3d3d3; margin-left: 50px">
 
     Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 
 <script>
+    "use strict";
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
 
@@ -125,7 +126,7 @@
 
             addRover: function (r) {
                 this.rover = r;
-                this.renderBot(r.posicion.x * 10 * 2, r.posicion.y * 10 * 2, r.direccion, 'red')
+                this.renderBot(r.posicion.x * 10 * 2, r.posicion.y * 10 * 2, r.direccion, this.rover.colorStyle)
 
             }
 
@@ -143,6 +144,11 @@
 
     rover.isVerbose = false;
     rover.randomPosicion();
+    rover.setRandomColor();
+
+
+    c.style.borderColor = rover.colorStyle;
+
     Land.addRover(rover);
 
     document.addEventListener('keydown', (event) => {
@@ -181,7 +187,7 @@
 
         //console.log("mov " + xOld + ',' + yOld + ' to ' + xNew + ',' + yNew);
 
-        Land.renderMovimiento(xOld, yOld, xNew, yNew, r.direccion, 'red');
+        Land.renderMovimiento(xOld, yOld, xNew, yNew, r.direccion, r.colorStyle);
 
     }, false);
 

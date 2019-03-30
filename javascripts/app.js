@@ -12,6 +12,9 @@ var b='backward';
 function Rover(nombre, xinicio, yinicio, direccionInicial) {
 
     this.nombre = nombre;
+    this.colorStyle='';
+
+
     this.isVerbose=true;
 
     this.direccion = direccionInicial || 'N';
@@ -204,7 +207,18 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
         this.posicion.x = n1;
         this.posicion.y = n2;
 
+    };
+
+    this.setRandomColor=function(){
+
+        let n1 =  Math.random() * 255;
+        let n2 = Math.random() * 255;
+        let n3 = Math.random() * 255;
+
+        this.colorStyle='rgb('+ n1+','+n2+','+n3+')';
+
     }
+
 
 
 
