@@ -1,14 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mars Rover</title>
-  <script src="javascripts/app.js"></script>
+    <meta charset="UTF-8">
+    <title>Mars Rover Game - davidh</title>
+
 </head>
 <body>
 
 
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #d3d3d3;">
 
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+
+    function Punto(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    let Land = {
+
+            getXMapaMitad: function () {
+                //es 1/2 del width del canvas 800/2
+                return 400;
+            },
+            getYMapaMitad: function () {
+                //es 1/2 del heigth del canvas 600/2
+                return 300;
+            },
+            validarX: function (x) {
+                return x >= (-this.getXMapaMitad()) && x <= this.getXMapaMitad();
+            },
+            validarY: function (y) {
+                return y >= (-this.getYMapaMitad()) && y <= this.getYMapaMitad();
+            },
+            renderBot: function (xCart, yCart, dir, color) {
+
+                ctx.fillStyle = color;
+                ctx.strokeStyle = color;
+
+                let xMapaMitad = this.getXMapaMitad();
+                let yMapaMitad = this.getYMapaMitad();
+                let alfa = 10; /* la mitad del cuadrado que rodea al item*/
+
+                let x = xCart + xMapaMitad;
+                let y = yMapaMitad-yCart;
+
+                let p1 = new Punto(x, y);
+                let p2 = new Punto(x, y);
+                let p3 = new Punto(x, y);
+
+
+                if (dir === 'N') {
+                    p1 = new Punto(x, y + 2 * alfa);
+                    p2 = new Punto(x + alfa, y);
+                    p3 = new Punto(x + (2 * alfa), y + (2 * alfa));
+
+                } else if (dir === 'S') {
+
+                    p2 = new Punto(x + (2 * alfa), y);
+                    p3 = new Punto(x + alfa, y + 2 * alfa);
+
+                } else if (dir === 'E') {
+
+                    p2 = new Punto(x + 2 * alfa, y + alfa);
+                    p3 = new Punto(x, y + 2 * alfa);
+
+                } else {
+                    p1 = new Punto(x + 2 * alfa, y);
+                    p2 = new Punto(x + 2 * alfa, y + 2 * alfa);
+                    p3 = new Punto(x, y + alfa);
+                }
+
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.lineTo(p3.x, p3.y);
+
+                ctx.fill();
+            },
+            deleteBot: function (xCart, yCart) {
+                ctx.fillStyle = 'rgb(256,256,256)';
+
+                let xMapaMitad = this.getXMapaMitad();
+                let yMapaMitad = this.getYMapaMitad();
+                let alfa = 10; /* la mitad del cuadrado que rodea al item*/
+
+                let x = xCart + xMapaMitad;
+                let y = yCart + yMapaMitad;
+
+                ctx.fillRect(x, y, alfa * 2, alfa * 2);
+
+
+            }, renderMovimiento: function (xold, yold, xnew, ynew, dir, color) {
+
+                if (xold) {
+                    this.deleteBot(xold, yold);
+                }
+
+                setTimeout(this.renderBot(xnew, ynew, dir, color), 200)
+
+            },
+            rover: null,
+
+            addRover: function (r) {
+                this.rover = r;
+                this.renderBot( r.posicion.x *10*2, r.posicion.y *10*2, r.direccion, 'red')
+
+            }
+
+
+        }
+    ;
+
+
+    //Land.renderMovimiento(0, 0, 50, 50, 'N', 'rgb(0, 221, 0)');
+
+
+
+
+
+</script>
+
+<script src="javascripts/app.js"></script>
+
+
+<script>
+
+    Land.addRover(rover);
+
+    document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+
+        if (keyName === 'Control') {
+            // do not alert when only Control key is pressed.
+            return;
+        }
+
+        console.log(keyName);
+
+        let movimiento='';
+
+        if(keyName==='ArrowUp'){
+            movimiento='forward';
+        }else if( keyName==='ArrowDown'){
+            movimiento='backward';
+        }else if( keyName==='ArrowRight'){
+            movimiento='turnRight';
+        }else if( keyName==='ArrowLeft'){
+            movimiento='turnLeft';
+        }else{
+            return ;
+
+        }
+
+
+        let r=this.rover;
+        r.mover(movimiento);
+        Land.renderMovimiento( r.posicionOld.x*2*10,r.posicionOld.y*2*10, r.posicion.x*2*10, r.posicion.y*2*10, r.direccion,'red' );
+
+    }, false);
+
+</script>
 
 </body>
 </html>
