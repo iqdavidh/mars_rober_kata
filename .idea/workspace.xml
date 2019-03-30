@@ -4,6 +4,7 @@
     <list default="true" id="f1340ed1-162c-47a7-af1e-df43a2a43eff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,23 +13,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.45148247">
+    <splitter split-orientation="vertical" split-proportion="0.57816714">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="171" column="7" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+                <state relative-caret-position="108">
+                  <caret line="98" column="53" lean-forward="true" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/javascripts/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="222">
-                  <caret line="163" column="30" selection-start-line="163" selection-start-column="21" selection-end-line="163" selection-end-column="30" />
+                <state relative-caret-position="-752">
+                  <caret line="52" selection-start-line="52" selection-end-line="52" />
                 </state>
               </provider>
             </entry>
@@ -58,8 +59,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="254">
-                  <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+                <state relative-caret-position="68">
+                  <caret line="172" selection-start-line="172" selection-end-line="172" />
                   <folding>
                     <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -82,6 +83,10 @@
     <findStrings>
       <find>forea</find>
       <find>rover</find>
+      <find>turnl</find>
+      <find>deleteBot</find>
+      <find>renderBot</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>dir</replace>
@@ -96,8 +101,8 @@
         <option value="$PROJECT_DIR$/javascripts/appCanvas.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/spec/app_test.js" />
-        <option value="$PROJECT_DIR$/javascripts/app.js" />
         <option value="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html" />
+        <option value="$PROJECT_DIR$/javascripts/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -106,8 +111,8 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1067" />
-    <option name="y" value="452" />
+    <option name="x" value="1378" />
+    <option name="y" value="463" />
     <option name="width" value="1467" />
     <option name="height" value="1141" />
   </component>
@@ -188,7 +193,7 @@
       <workItem from="1553442260212" duration="9639000" />
       <workItem from="1553748992701" duration="3103000" />
       <workItem from="1553772580285" duration="5906000" />
-      <workItem from="1553897322608" duration="7653000" />
+      <workItem from="1553897322608" duration="10258000" />
     </task>
     <task id="LOCAL-00001" summary="funcionando">
       <created>1553451302159</created>
@@ -211,14 +216,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553778576442</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ya tengo un render de bot, falta borrar la posicion anterior">
+      <created>1553906496392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553906496392</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31021000" />
+    <option name="totallyTimeSpent" value="33626000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1067" y="452" width="1467" height="1141" extended-state="0" />
+    <frame x="1378" y="463" width="1467" height="1141" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" order="0" sideWeight="0.38763493" side_tool="true" weight="0.18205805" />
@@ -233,7 +245,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50074625" side_tool="true" weight="0.32934782" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49925372" weight="0.1703422" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" visible="true" weight="0.2638889" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" visible="true" weight="0.2638889" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49944875" weight="0.23878327" />
@@ -242,7 +254,7 @@
       <window_info anchor="right" id="Remote Host" order="0" sideWeight="0.49961978" weight="0.32948643" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" sideWeight="0.7112887" visible="true" weight="0.1748401" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" sideWeight="0.7112887" visible="true" weight="0.1748401" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.14269073" />
       <window_info anchor="right" id="Coverage" order="5" sideWeight="0.49347827" side_tool="true" weight="0.20646937" />
       <window_info anchor="right" x="0" y="0" width="310" height="1246" id="Documentation" order="6" sideWeight="0.48424843" side_tool="true" weight="0.16364953" />
@@ -258,7 +270,8 @@
     <MESSAGE value="funcionando" />
     <MESSAGE value="refactorizando nombre de variable coordenadas es incorrecto" />
     <MESSAGE value="refactorizando para tener con function constructor y poder tener mas de un rober, tambien hace el backward. Saque codigo de jasmin de file al cuerpo html para que sea mas facil editar. Creo que es mejor usar node para pruebas -ver como un link js pueda usarse sin cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactorizando para tener con function constructor y poder tener mas de un rober, tambien hace el backward. Saque codigo de jasmin de file al cuerpo html para que sea mas facil editar. Creo que es mejor usar node para pruebas -ver como un link js pueda usarse sin cache" />
+    <MESSAGE value="ya tengo un render de bot, falta borrar la posicion anterior" />
+    <option name="LAST_COMMIT_MESSAGE" value="ya tengo un render de bot, falta borrar la posicion anterior" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/javascripts/appCanvas.js" />
@@ -281,18 +294,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="163" column="30" selection-start-line="163" selection-start-column="21" selection-end-line="163" selection-end-column="30" />
+        <state relative-caret-position="-752">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="98" column="53" lean-forward="true" selection-start-line="98" selection-start-column="53" selection-end-line="98" selection-end-column="53" />
         </state>
       </provider>
     </entry>

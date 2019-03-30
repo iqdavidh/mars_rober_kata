@@ -42,6 +42,7 @@
             },
             renderBot: function (xCart, yCart, dir, color) {
 
+                console.log('render ' + xCart + ',' + yCart);
                 ctx.fillStyle = color;
                 ctx.strokeStyle = color;
 
@@ -49,8 +50,8 @@
                 let yMapaMitad = this.getYMapaMitad();
                 let alfa = 10; /* la mitad del cuadrado que rodea al item*/
 
-                let x = xCart + xMapaMitad;
-                let y = yMapaMitad-yCart;
+                let x = xMapaMitad + xCart;
+                let y = yMapaMitad - yCart;
 
                 let p1 = new Punto(x, y);
                 let p2 = new Punto(x, y);
@@ -78,39 +79,50 @@
                     p3 = new Punto(x, y + alfa);
                 }
 
+                ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
                 ctx.lineTo(p2.x, p2.y);
                 ctx.lineTo(p3.x, p3.y);
+                ctx.closePath();
 
                 ctx.fill();
             },
             deleteBot: function (xCart, yCart) {
-                ctx.fillStyle = 'rgb(256,256,256)';
+                //console.log('borrar ' + xCart + ',' + yCart);
+
 
                 let xMapaMitad = this.getXMapaMitad();
                 let yMapaMitad = this.getYMapaMitad();
                 let alfa = 10; /* la mitad del cuadrado que rodea al item*/
 
-                let x = xCart + xMapaMitad;
-                let y = yCart + yMapaMitad;
+                let x = xMapaMitad + xCart;
+                let y = yMapaMitad - yCart;
 
-                ctx.fillRect(x, y, alfa * 2, alfa * 2);
+                console.log('borrar ' + x + ',' + y);
+                ctx.clearRect(x, y, alfa * 2, alfa * 2);
 
 
             }, renderMovimiento: function (xold, yold, xnew, ynew, dir, color) {
 
-                if (xold) {
-                    this.deleteBot(xold, yold);
-                }
+                let self = this;
 
-                setTimeout(this.renderBot(xnew, ynew, dir, color), 200)
+                self.deleteBot(xold, yold);
+                self.renderBot(xnew, ynew, dir, color);
+                /*
+                let fn = function () {
+
+                };
+
+                setTimeout(fn, 100)
+                */
+
 
             },
             rover: null,
 
             addRover: function (r) {
                 this.rover = r;
-                this.renderBot( r.posicion.x *10*2, r.posicion.y *10*2, r.direccion, 'red')
+                this.renderBot(r.posicion.x * 10 * 2, r.posicion.y * 10 * 2, r.direccion, 'red')
 
             }
 
@@ -122,16 +134,14 @@
     //Land.renderMovimiento(0, 0, 50, 50, 'N', 'rgb(0, 221, 0)');
 
 
-
-
-
 </script>
 
-<script src="javascripts/app.js"></script>
+<script src="javascripts/app.js?v=1"></script>
 
 
 <script>
 
+    rover.isVerbose = false;
     Land.addRover(rover);
 
     document.addEventListener('keydown', (event) => {
@@ -142,27 +152,35 @@
             return;
         }
 
-        console.log(keyName);
+        let movimiento = '';
 
-        let movimiento='';
-
-        if(keyName==='ArrowUp'){
-            movimiento='forward';
-        }else if( keyName==='ArrowDown'){
-            movimiento='backward';
-        }else if( keyName==='ArrowRight'){
-            movimiento='turnRight';
-        }else if( keyName==='ArrowLeft'){
-            movimiento='turnLeft';
-        }else{
-            return ;
+        if (keyName === 'ArrowUp') {
+            movimiento = 'forward';
+        } else if (keyName === 'ArrowDown') {
+            movimiento = 'backward';
+        } else if (keyName === 'ArrowRight') {
+            movimiento = 'turnRight';
+        } else if (keyName === 'ArrowLeft') {
+            movimiento = 'turnLeft';
+        } else {
+            return;
 
         }
 
 
-        let r=this.rover;
+        let r = this.rover;
+
+        let xOld = r.posicion.x * 2 * 10;
+        let yOld = r.posicion.y * 2 * 10;
+
         r.mover(movimiento);
-        Land.renderMovimiento( r.posicionOld.x*2*10,r.posicionOld.y*2*10, r.posicion.x*2*10, r.posicion.y*2*10, r.direccion,'red' );
+
+        let xNew = r.posicion.x * 2 * 10;
+        let yNew = r.posicion.y * 2 * 10;
+
+        console.log("mov " + xOld + ',' + yOld + ' to ' + xNew + ',' + yNew);
+
+        Land.renderMovimiento(xOld, yOld, xNew, yNew, r.direccion, 'red');
 
     }, false);
 

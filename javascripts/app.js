@@ -12,6 +12,7 @@ var b='backward';
 function Rover(nombre, xinicio, yinicio, direccionInicial) {
 
     this.nombre = nombre;
+    this.isVerbose=true;
 
     this.direccion = direccionInicial || 'N';
 
@@ -50,11 +51,6 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
         y: (yinicio || 0)
     };
 
-    this.posicionOld = {
-        x: (xinicio || 0),
-        y: (yinicio || 0)
-    };
-
     this.historialMovimientos = [];
     this.travelLog = [];
 
@@ -82,9 +78,6 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
         let dir = this.direccion;
 
         this.historialMovimientos.push(tipoMovimiento);
-
-        this.posicionOld.x = this.posicion.x;
-        this.posicionOld.y = this.posicion.y;
 
 
         if (tipoMovimiento === 'forward') {
@@ -117,8 +110,10 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
             this.direccion = this.getNewDireccion(this.direccion, tipoMovimiento);
         }
 
-        console.log(tipoMovimiento + " was called!");
-        console.log('Direccion ' + this.direccion);
+        if(this.isVerbose){
+            console.log(tipoMovimiento + " was called!");
+            console.log('Direccion ' + this.direccion);
+        }
 
         /* validar limites */
 
@@ -128,7 +123,10 @@ function Rover(nombre, xinicio, yinicio, direccionInicial) {
         this.posicion.y= (this.posicion.y)>10?10:this.posicion.y;
 
 
-        console.log(this.posicion);
+        if(this.isVerbose){
+            console.log(this.posicion);
+        }
+
 
 
         //guardar historial de ubicaciones
