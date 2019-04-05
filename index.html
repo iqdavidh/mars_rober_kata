@@ -12,16 +12,54 @@
 
 
 <canvas id="myCanvas" width="420" height="420" style="border:5px solid #d3d3d3; margin-left: 50px">
-
     Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<script src="javascripts/app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 
 <script>
     "use strict";
+
+
+    /********************************************************************************/
+
+    var ws = new WebSocket("wss://9ig8cfud1d.execute-api.us-west-2.amazonaws.com/Dev");
+
+    ws.onopen = function() {
+        ws.send("yeah baby!");
+        console.log('conectado')
+    };
+
+    ws.onmessage = function (event) {
+        console.log(event)
+    };
+
+    ws.onclose = function() {
+        console.log('cerrado');
+    };
+
+    function sendDataWS(mov){
+
+        var msg = {
+            type: "message",
+            movimiento:mov
+         /*   id:   clientID,*/
+        };
+
+        // Send the msg object as a JSON-formatted string.
+        ws.send(JSON.stringify(msg));
+
+    }
+
+
+
+    /* ************************************************************************************** */
+
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+
+
+
 
 
     function Punto(x, y) {
@@ -198,8 +236,11 @@
         };
 
         Land.renderMovimiento(dataMov);
+        sendDataWS(dataMov)
 
     }, false);
+
+
 
 </script>
 
