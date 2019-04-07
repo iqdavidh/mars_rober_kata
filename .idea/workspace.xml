@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1340ed1-162c-47a7-af1e-df43a2a43eff" name="Default Changelist" comment="">
+    <list default="true" id="f1340ed1-162c-47a7-af1e-df43a2a43eff" name="Default Changelist" comment="refactorizando para poder monttar en js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -26,26 +26,33 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.41644204">
+    <splitter split-orientation="vertical" split-proportion="0.5104962">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="50">
-                  <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+                <state relative-caret-position="173">
+                  <caret line="120" column="57" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="57" />
                   <folding>
-                    <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="e#1434#1529#0" />
+                    <element signature="e#1570#1666#0" />
+                    <element signature="e#1703#1800#0" />
+                    <element signature="e#1837#1934#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/javascripts/app.js">
+            <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                <state relative-caret-position="-2380">
+                  <caret line="52" column="19" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -66,10 +73,13 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="159">
-                  <caret line="233" column="17" lean-forward="true" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+                <state relative-caret-position="258">
+                  <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
                   <folding>
-                    <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -97,6 +107,8 @@
       <find>conso</find>
       <find>renderMovimiento</find>
       <find>bor</find>
+      <find>sendDataWS</find>
+      <find>color</find>
     </findStrings>
     <replaceStrings>
       <replace>dir</replace>
@@ -111,8 +123,9 @@
         <option value="$PROJECT_DIR$/javascripts/appCanvas.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/spec/app_test.js" />
-        <option value="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html" />
         <option value="$PROJECT_DIR$/javascripts/app.js" />
+        <option value="$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html" />
+        <option value="$PROJECT_DIR$/test/x.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -121,10 +134,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="711" />
-    <option name="y" value="170" />
+    <option name="x" value="913" />
     <option name="width" value="1782" />
-    <option name="height" value="1313" />
+    <option name="height" value="1447" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -142,22 +154,6 @@
               <item name="mars-rover-v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="mars-rover-v2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mars-rover-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars-rover-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mars-rover-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars-rover-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mars-rover-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars-rover-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine-standalone-3.3.0" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -172,6 +168,9 @@
     <property name="settings.editor.splitter.proportion" value="0.2407767" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\App\Iron\app\mars-rover-v2" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\App\Iron\app\mars-rover-v2" />
     </key>
@@ -208,6 +207,10 @@
       <workItem from="1553991353688" duration="602000" />
       <workItem from="1554176164987" duration="599000" />
       <workItem from="1554217674951" duration="137000" />
+      <workItem from="1554484915851" duration="1062000" />
+      <workItem from="1554597667041" duration="967000" />
+      <workItem from="1554623329312" duration="629000" />
+      <workItem from="1554655686244" duration="5008000" />
     </task>
     <task id="LOCAL-00001" summary="funcionando">
       <created>1553451302159</created>
@@ -265,14 +268,22 @@
       <option name="project" value="LOCAL" />
       <updated>1553912155758</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactorizando para poder monttar en js">
+      <created>1554485136819</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554485136819</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40979000" />
+    <option name="totallyTimeSpent" value="48645000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="739" y="276" width="1782" height="1313" extended-state="0" />
+    <frame x="913" y="0" width="1782" height="1447" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" order="0" sideWeight="0.38763493" side_tool="true" weight="0.18205805" />
       <window_info id="Database" order="1" sideWeight="0.610687" weight="0.34683725" />
@@ -286,7 +297,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50074625" side_tool="true" weight="0.32934782" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49925372" weight="0.1703422" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" visible="true" weight="0.22542372" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49724367" visible="true" weight="0.10806697" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49944875" weight="0.23878327" />
@@ -295,7 +306,7 @@
       <window_info anchor="right" id="Remote Host" order="0" sideWeight="0.49961978" weight="0.32948643" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" sideWeight="0.7112887" visible="true" weight="0.14982578" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" sideWeight="0.7112887" visible="true" weight="0.15679443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.14269073" />
       <window_info anchor="right" id="Coverage" order="5" sideWeight="0.49347827" side_tool="true" weight="0.20646937" />
       <window_info anchor="right" x="0" y="0" width="310" height="1246" id="Documentation" order="6" sideWeight="0.48424843" side_tool="true" weight="0.16364953" />
@@ -316,7 +327,8 @@
     <MESSAGE value="funcioinando completamente" />
     <MESSAGE value="ya tiene el color listo, sigue preparar el envio de evento de movimiento" />
     <MESSAGE value="listo para comenzar con los eventos" />
-    <option name="LAST_COMMIT_MESSAGE" value="listo para comenzar con los eventos" />
+    <MESSAGE value="refactorizando para poder monttar en js" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactorizando para poder monttar en js" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/javascripts/appCanvas.js" />
@@ -325,15 +337,8 @@
     <entry file="file://$PROJECT_DIR$/test/jasmine-standalone-3.3.0/spec/app_test.js" />
     <entry file="file://$PROJECT_DIR$/test/jasmine-standalone-3.3.0/SpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="386">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -344,12 +349,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/x.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2380">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="233" column="17" lean-forward="true" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+        <state relative-caret-position="258">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -11,39 +11,78 @@
 <p>@iqdavidh</p>
 
 
-<canvas id="myCanvas" width="420" height="420" style="border:5px solid #d3d3d3; margin-left: 50px">
-    Your browser does not support the HTML5 canvas tag.
-</canvas>
+<div style="display: flex">
+    <canvas id="myCanvas" width="420" height="420" style="border:5px solid #d3d3d3; margin-left: 50px">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <div style="padding: 30px">
+        <!-- seccion para poner mensajes del websocket  -solo es debug-  -->
+        <div id="output">
+
+        </div>
+        <div style="padding: 5px">
+            <p>Si se desconecta recargar la página</p>
+        </div>
+    </div>
+</div>
+
 
 <script src="app.js?v=2"></script>
 
 <script>
     "use strict";
 
+    var output = document.getElementById("output");
+
+    function writeToScreen(message) {
+        var p = document.createElement("p");
+        p.style.wordWrap = "break-word";
+        p.innerHTML = message;
+        output.appendChild(p);
+    }
+
 
     /********************************************************************************/
-
     var ws = new WebSocket("wss://9ig8cfud1d.execute-api.us-west-2.amazonaws.com/Dev");
 
-    ws.onopen = function() {
-        ws.send("yeah baby!");
-        console.log('conectado')
+    ws.onopen = function (evento) {
+        writeToScreen("Conectado");
     };
 
-    ws.onmessage = function (event) {
-        console.log(event)
-    };
-
-    ws.onclose = function() {
+    ws.onclose = function (evento) {
         console.log('cerrado');
+        writeToScreen("Desconectado");
     };
 
-    function sendDataWS(mov){
+    ws.onmessage = function (evento) {
+
+        let json = evento.data;
+        let data = JSON.parse(json);
+
+        if(data.movimiento){
+            let mov = data.movimiento;
+            console.log(mov);
+            Land.renderMovimientoSocket(mov);
+        }
+
+
+    };
+
+    ws.onerror = function (evento) {
+        console.log('Error --------------------');
+        console.log(evento);
+
+    };
+
+
+    function sendDataWS(mov) {
+
+        /* verficiar que este conectado ws*/
+
 
         var msg = {
             type: "message",
-            movimiento:mov
-         /*   id:   clientID,*/
+            movimiento: mov
         };
 
         // Send the msg object as a JSON-formatted string.
@@ -52,14 +91,10 @@
     }
 
 
-
     /* ************************************************************************************** */
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-
-
-
 
 
     function Punto(x, y) {
@@ -70,11 +105,11 @@
     let Land = {
 
             getXMapaMitad: function () {
-                //es 1/2 del width del canvas 800/2
+                //es 1/2 del width del canvas 400/2
                 return 200;
             },
             getYMapaMitad: function () {
-                //es 1/2 del heigth del canvas 600/2
+                //es 1/2 del heigth del canvas 400/2
                 return 200;
             },
             validarX: function (x) {
@@ -131,9 +166,6 @@
                 ctx.fill();
             },
             deleteBot: function (xCart, yCart) {
-                //console.log('borrar ' + xCart + ',' + yCart);
-
-
                 let xMapaMitad = this.getXMapaMitad();
                 let yMapaMitad = this.getYMapaMitad();
                 let alfa = 10; /* la mitad del cuadrado que rodea al item*/
@@ -144,36 +176,35 @@
                 //console.log('borrar ' + x + ',' + y);
                 ctx.clearRect(x, y, alfa * 2, alfa * 2);
 
-
-            }, renderMovimiento: function (dataMov) {
+            },
+            renderMovimiento: function (dataMov) {
 
                 let xOld = dataMov.xOld;
                 let yOld = dataMov.yOld;
                 let xNew = dataMov.xNew;
                 let yNew = dataMov.yNew;
                 let dir = dataMov.dir;
-                let color = dataMov.color;
+                let color = dataMov.colorStyle;
 
                 let self = this;
 
                 self.deleteBot(xOld, yOld);
                 self.renderBot(xNew, yNew, dir, color);
-                /*
-                let fn = function () {
-
-                };
-
-                setTimeout(fn, 100)
-                */
-
 
             },
+
             rover: null,
 
             addRover: function (r) {
                 this.rover = r;
                 this.renderBot(r.posicion.x * 10 * 2, r.posicion.y * 10 * 2, r.direccion, this.rover.colorStyle)
 
+            },
+            renderMovimientoSocket:function (dataMov) {
+                let self = this;
+                if(dataMov.id!==self.rover.id){
+                    self.renderMovimiento(dataMov)
+                }
             }
 
 
@@ -236,10 +267,11 @@
         };
 
         Land.renderMovimiento(dataMov);
+
+        /*Enviar el movimiento al websocket para notificar clientes ***************************** */
         sendDataWS(dataMov)
 
     }, false);
-
 
 
 </script>
